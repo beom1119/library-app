@@ -1,9 +1,24 @@
 package com.group.libraryapp.domain.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id = null;
     private String name;
     private Integer age;
+
+
+    protected User()
+    {
+
+    }
 
 
     public User(String name, Integer age) {
@@ -22,5 +37,15 @@ public class User {
 
     public Integer getAge() {
         return age;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public void updateName(String name)
+    {
+        this.name=name;
     }
 }
