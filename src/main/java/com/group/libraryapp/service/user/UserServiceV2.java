@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -53,11 +54,12 @@ public class UserServiceV2 {
     @Transactional
     public void deleteUser(String name)
     {
-        User deleteUser = userRepository.findByName(name);
-        if (deleteUser == null)
-        {
-            throw new IllegalArgumentException();
-        }
+        User deleteUser = userRepository.findByName(name).orElseThrow(IllegalArgumentException::new);
+
+//        if (deleteUser == null)
+//        {
+//            throw new IllegalArgumentException();
+//        }
         userRepository.delete(deleteUser);
 
 //        if (!userRepository.existsByName(name))
