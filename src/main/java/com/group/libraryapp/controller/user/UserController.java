@@ -6,6 +6,7 @@ import com.group.libraryapp.dto.user.response.UserResponse;
 import com.group.libraryapp.service.user.UserService;
 import com.group.libraryapp.service.user.UserServiceV1;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class UserController {
 
 
     @PostMapping("/user") //Post /User
-    public void saveUser(@RequestBody UserCreateRequest userCreateRequest)
+    public void saveUser(@RequestBody @Validated UserCreateRequest userCreateRequest)
     {
         userServiceV1.saveUser(userCreateRequest);
     }

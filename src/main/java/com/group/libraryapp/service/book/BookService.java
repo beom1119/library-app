@@ -47,8 +47,7 @@ public class BookService {
         }
         //유저 정보를 가져온다.
         User user = userRepository.findByName(request.getUserName()).orElseThrow(IllegalArgumentException::new);
-
-        userLoanHistoryRepository.save(new UserLoanHistory(user.getId(), request.getBookName()));
+        user.loanBook(request.getBookName());
 
 
 
