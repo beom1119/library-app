@@ -17,7 +17,7 @@ public class UserJdbcRepository {
     public UserJdbcRepository(JdbcTemplate jdbcTemplate)
     {
 
-        this.jdbcTemplate = jdbcTemplate;
+        this.jdbcTemplate = jdbcTemplate;   ///tmeplat
     }
 
 
