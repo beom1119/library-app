@@ -28,7 +28,7 @@ public class UserLoanHistory {
 
     public UserLoanHistory(User user, String bookName) {
         this.user = user;
-        this.bookName = bookName;
+        this.bookName = bookName; ////cascade
         this.isReturn = false;
     }
 
